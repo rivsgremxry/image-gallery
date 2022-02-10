@@ -5,9 +5,18 @@
 }
 
 html {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
 }
-html::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+
+html::-webkit-scrollbar {
+  /* Safari and Chrome */
+  display: none;
+}
+
+.AppName {
+  text-align: center;
+  padding-top: 15px;
 }
