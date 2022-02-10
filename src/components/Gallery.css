@@ -38,3 +38,11 @@
         column-width: 100%;
     }
 }
+
+.modal-vcenter {
+    display: flex !important;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+}

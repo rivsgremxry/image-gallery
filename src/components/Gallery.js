@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
+import PostList from './PostList'
+import PostForm from './PostForm'
 import '././Gallery.css'
+import { Modal } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 
 const Gallery = () => {
 
@@ -12,20 +17,41 @@ const Gallery = () => {
         { "id": 242, "url": "https://picsum.photos/id/242/300/200" }
     ]
 
-    const [modal, setModal] = useState(false)
+    const [posts, setPosts] = useState([
+        { "id": 1, "body": "Test1" },
+        { "id": 2, "body": "Test2" },
+        { "id": 3, "body": "Test3" }
+    ])
+
+    const createPost = (newPost) => {
+        setPosts([...posts, newPost])
+    }
+
     const [tempUrl, setTempUrl] = useState('')
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const getImage = (url) => {
-        console.warn(url);
         setTempUrl(url)
-        setModal(true)
+        handleShow()
     }
 
     return (
         <>
-            <div className={modal ? "modal open" : "modal"}>
-                <img src={tempUrl} alt={tempUrl} />
-            </div>
+            {/* <PostForm create={createPost} /> */}
+            {/* <PostList posts={posts} /> */}
+
+            <Modal show={show} onHide={handleClose} className="modal-vcenter">
+                <ModalHeader closeButton></ModalHeader>
+                <Modal.Body>
+                    <img src={tempUrl} alt={tempUrl} />
+                    <PostList posts={posts} />
+                    <PostForm create={createPost} />
+                </Modal.Body>
+            </Modal>
+
             <div className='gallery'>
                 {
                     data.map((item, index) => {
