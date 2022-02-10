@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './styles/Gallery.css'
+import React from 'react'
+import '././Gallery.css'
 
 const Gallery = () => {
 
@@ -26,6 +26,7 @@ const Gallery = () => {
                                 src={item.url}
                                 alt={'image' + index}
                                 style={{ width: '100%' }}
+                                onClick={() => getImage(item.url)}
                             />
                         </div>
                     )
