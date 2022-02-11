@@ -3,8 +3,6 @@ import PostList from './PostList'
 import PostForm from './PostForm'
 import '././Gallery.css'
 import { Modal } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
-import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 
 const Gallery = () => {
 
@@ -18,9 +16,9 @@ const Gallery = () => {
     ]
 
     const [posts, setPosts] = useState([
-        { "id": 1, "body": "Test1" },
-        { "id": 2, "body": "Test2" },
-        { "id": 3, "body": "Test3" }
+        { "id": 1, "name": "Name1", "body": "Test1" },
+        { "id": 2, "name": "Name2", "body": "Test2" },
+        { "id": 3, "name": "Name3", "body": "Test3" }
     ])
 
     const createPost = (newPost) => {
@@ -43,9 +41,8 @@ const Gallery = () => {
             {/* <PostForm create={createPost} /> */}
             {/* <PostList posts={posts} /> */}
 
-            <Modal show={show} onHide={handleClose} className="modal-vcenter">
-                <ModalHeader closeButton></ModalHeader>
-                <Modal.Body>
+            <Modal show={show} onHide={handleClose} className='modal' centered size="lg">
+                <Modal.Body className='modal-body'>
                     <img src={tempUrl} alt={tempUrl} />
                     <PostList posts={posts} />
                     <PostForm create={createPost} />
