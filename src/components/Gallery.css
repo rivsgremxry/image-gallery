@@ -18,7 +18,7 @@
 
 .gallery .picture:hover {
     /* filter: opacity(.8); */
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 @media (max-width: 1200px) {
@@ -40,10 +40,10 @@
     }
 }
 
-.modal-vcenter {
-    display: flex !important;
-    top: 50%;
-    left: 50%;
-    justify-content: center;
-    align-items: center;
+.modal {
+
+}
+
+.modal-body {
+    
 }
