@@ -1,15 +1,14 @@
 import React from 'react'
-import GetImage from './GetImage'
+import GetImages from './GetImages'
 
 import '././Gallery.css'
-
-// import { Modal } from 'react-bootstrap'
-
 
 const Gallery = () => {
 
     return (
-        <GetImage />
+        <>
+            <GetImages />
+        </>
     )
 }
 
