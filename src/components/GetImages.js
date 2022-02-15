@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Modal } from 'react-bootstrap'
 
 const GetItem = () => {
   
-
-  // data = "https://boiling-refuge-66454.herokuapp.com/images/"
-  // x = setID
-  // y = data + setID
   // Получение "обычных" изображений
   const [images, setImages] = useState([]);
   useEffect(() => {
@@ -58,6 +54,7 @@ const GetItem = () => {
       </>
     </div>
   );
+  
 }
 
 export default GetItem
