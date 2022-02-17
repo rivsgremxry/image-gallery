@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 
 import { Modal } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
+
+import { Container, Row, Col } from 'react-bootstrap'
 
 const GetItem = () => {
 
@@ -27,7 +28,7 @@ const GetItem = () => {
   // Получение "больших" изображений и комментариев
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://boiling-refuge-66454.herokuapp.com/images/240")
+    fetch("https://boiling-refuge-66454.herokuapp.com/images/238")
       .then((res) => res.json())
       .then(
         (data) => {
@@ -48,39 +49,57 @@ const GetItem = () => {
         return (
           <Modal show={show} onHide={handleClose} className='modal' centered size="lg">
             <Modal.Body>
-              <img
-                src={data.url}
-                alt={'image' + data.id}
-                style={{ width: '100%' }}
-              />
-              <h1>{myDate}</h1>
-              <h1>{data.comments[key].text}</h1>
+              <Container>
+                <Row className="imageRow">
+                  <Col md={7}>
+                    <img
+                      src={data.url}
+                      alt={'image' + data.id}
+                      style={{ width: '100%' }}
+                    />
+                  </Col>
+                  <Col md={5} className="commentsCol">
+                    <p>{myDate}</p>
+                    <p>{data.comments[key].text}</p>
+                  </Col>
+                </Row>
+                <Row className="postRow">
+                  <Col md={{ span: 7, offset: 0 }}>
+                    <input className="inputs"></input>
+                    <input className="inputs"></input>
+                    <button className="inputs">Comment submit</button>
+                  </Col>
+                </Row>
+              </Container>
             </Modal.Body>
-
-            <Modal.Footer>
-              <Button variant="secondary">Close</Button>
-              <Button variant="primary">Save changes</Button>
-            </Modal.Footer>
           </Modal>
         )
       }
     }
     if (!!data.comments) {
       return (
-        <Modal.Dialog>
-          <Modal.Body>
-            <img
-              src={data.url}
-              alt={'image' + data.id}
-              style={{ width: '100%' }}
-            />
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save changes</Button>
-          </Modal.Footer>
-        </Modal.Dialog>
+        <Modal show={show} onHide={handleClose} className='modal' centered size="lg">
+        <Modal.Body>
+          <Container>
+            <Row className="imageRow">
+              <Col md={12}>
+                <img
+                  src={data.url}
+                  alt={'image' + data.id}
+                  style={{ width: '100%' }}
+                />
+              </Col>
+            </Row>
+            <Row className="postRow">
+              <Col md={{ span: 12, offset: 0 }}>
+                <input className="inputs"></input>
+                <input className="inputs"></input>
+                <button className="inputs">Comment submit</button>
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+      </Modal>
       )
     }
   }
@@ -95,24 +114,24 @@ const GetItem = () => {
   return (
     <div className="App">
 
-        {handleModal()}
+      {handleModal()}
 
-        <div className="gallery">
-          {
-            images.map((item) => {
-              return (
-                <div className="picture" key={item.id}>
-                  <img
-                    src={item.url}
-                    alt={'image' + item.id}
-                    style={{ width: '100%' }}
-                    onClick={() => GetImageId(item.id)}
-                  />
-                </div>
-              )
-            })
-          }
-        </div>
+      <div className="gallery">
+        {
+          images.map((item) => {
+            return (
+              <div className="picture" key={item.id}>
+                <img
+                  src={item.url}
+                  alt={'image' + item.id}
+                  style={{ width: '100%' }}
+                  onClick={() => GetImageId(item.id)}
+                />
+              </div>
+            )
+          })
+        }
+      </div>
 
     </div>
   );
