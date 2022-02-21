@@ -33,7 +33,7 @@ export default function Modal({ setModalOpen, postId }) {
                     <button onClick={() => { setModalOpen(false); }} > X </button>
                 </div>
                 <Row className="imageRow">
-                    <Col md={7}>
+                    <Col md={7} className="colImg">
                         {data.url
                             ? <img className="post_image" src={data.url} alt={'image' + data.id} />
                             : <span>Loading....</span>

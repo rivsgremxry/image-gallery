@@ -113,3 +113,45 @@
     width: 100%;
     height: auto;
 }
+
+@media screen and (max-width: 767px) {
+    .modalContainer {
+        height: 100%;
+        width: 100%;
+    }
+
+    .colImg, col-md-7 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+    .inputs {
+        border-style: solid;
+        color: rgb(73, 151, 208);
+    }
+
+    .imageRow {
+        position: relative;
+        top: -36px;
+    }
+
+    .commentsCol {
+        padding-top: 45px;
+        font-size: 18px;
+    }
+
+    .modal_close {
+        /* Safari */
+        display: -webkit-flex;
+        -webkit-justify-content: flex-end;
+        /* Standard syntax */
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        z-index: 1;
+    }
+
+    .modal_close button {
+        color: white !important;
+    }
+}
