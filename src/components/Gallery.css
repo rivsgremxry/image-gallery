@@ -1,3 +1,4 @@
+/* Стиль галереи */
 .gallery {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -8,6 +9,7 @@
     padding: 30px 20px;
 }
 
+/* Стиль картинок */
 .gallery .picture {
     -webkit-transition: all 350ms ease;
     transition: all 350ms ease;
@@ -16,19 +18,24 @@
     margin: 0 15px 35px 15px;
 }
 
+/* Стиль картинки при наведении */
 .gallery .picture:hover {
-    /* filter: opacity(.8); */
     transform: scale(1.03);
 }
 
+/* Стиль галереи, при изменении разрешения экрана - ширина 1200 пикселей*/
 @media (max-width: 1200px) {
     .gallery {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
     }
+    .commentsCol {
+        padding-left: 12px;
+    }
 }
 
+/* Стиль галереи, при изменении разрешения экрана - ширина 767 пикселей*/
 @media (max-width: 767px) {
     .gallery {
         -webkit-column-count: 1;
@@ -41,16 +48,68 @@
 
     .commentsCol {
         padding-top: 20px;
+        padding-left: 12px;
     }
 }
 
+/* Стиль создания поста */
 .postRow {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
+/* Стиль инпут элементов */
 .inputs {
     width: 100%;
     margin-bottom: 10px;
     padding: 12px 20px;
+}
+
+/* Стиль фона для модального окна */
+.modal_background {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+}
+
+/* Стиль содержимого модального окна */
+.modalContainer {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: fit-content;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+  
+/* Стиль див элемента - закрыть модальное окно */
+.modal_close {
+      display: flex;
+      justify-content: right;
+}
+   
+/* Стиль кнопки - закрыть модальное окно */
+.modal_close button {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+}
+  
+/* Стиль изображения в модальном окне */
+.post_image {
+    width: 100%;
+    height: auto;
 }
