@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 import "./Gallery.css"
 
-window.id = 1
-
 export default function PostForm({ postId }) {
 
     const [username, setUsername] = useState("")
