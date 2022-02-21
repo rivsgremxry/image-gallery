@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./Modal.css";
-import { Container, Row, Col } from 'react-bootstrap'
-import PostForm from './PostForm'
+
+// Бустрап элементы
+import { Container, Row, Col } from 'react-bootstrap';
+
+// Компоненты
+import PostForm from './PostForm';
+import Comments from "./Comments";
 
 export default function Modal({ setModalOpen, postId }) {
 
     const [data, setData] = useState([]);
 
+    // Получение изображений по идентификатору
     useEffect(() => {
         fetch(`https://boiling-refuge-66454.herokuapp.com/images/${postId}`)
             .then((res) => res.json())
@@ -20,21 +25,7 @@ export default function Modal({ setModalOpen, postId }) {
             );
     }, [postId]);
 
-    function handleComments() {
-        if (typeof data.comments !== 'undefined') {
-            for (let key of Object.keys(data.comments)) {
-                var d = new Date(data.comments[key].date);
-                let myDate = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear()
-                return (
-                    <Col md={4} className="commentsCol">
-                        <p>{myDate}</p>
-                        <p>{data.comments[key].text}</p>
-                    </Col>
-                )
-            }
-        }
-    }
-
+    // Модальное окно с изображениями, комментариями и формой для создания комментария
     return (
         <div className="modal_background">
             <Container className="modalContainer">
@@ -48,7 +39,7 @@ export default function Modal({ setModalOpen, postId }) {
                             : <span>Loading....</span>
                         }
                     </Col>
-                    {handleComments()}
+                    { data.comments  && <Comments comments={ data.comments } /> }
                 </Row>
                 <Row className="postRow">
                     <Col md={{ span: 7, offset: 0 }}>
@@ -57,5 +48,5 @@ export default function Modal({ setModalOpen, postId }) {
                 </Row>
             </Container>
         </div>
-    );
+    )
 }

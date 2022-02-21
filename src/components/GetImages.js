@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react"
+
+// Компонент
 import Modal from "./Modal";
+
+// Стили
 import '././Gallery.css'
 
 const GetItem = () => {
@@ -30,7 +34,6 @@ const GetItem = () => {
 
   return (
     <div className="App">
-
       <div className="gallery">
         {
           images.map((item) => {
@@ -46,9 +49,8 @@ const GetItem = () => {
             )
           })
         }
-        { modalOpen &&  <Modal setModalOpen={ setModalOpen } postId={currentPostId} />}
+        {modalOpen && <Modal setModalOpen={setModalOpen} postId={currentPostId} />}
       </div>
-
     </div>
   );
 

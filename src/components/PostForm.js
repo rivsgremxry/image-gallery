@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-import "./Gallery.css"
-
 export default function PostForm({ postId }) {
 
     const [username, setUsername] = useState("")
@@ -13,7 +11,7 @@ export default function PostForm({ postId }) {
     function handleSubmit(e) {
         e.preventDefault()
 
-        console.log("handling submit!");
+        // console.log("handling submit!");
 
         const requestParams = {
             method: 'POST',
@@ -46,7 +44,7 @@ export default function PostForm({ postId }) {
         <form className="post_form" onSubmit={handleSubmit} >
             <input className='inputs' type="text" placeholder="Ваше имя" id="username" value={username} onChange={handleUsername} />
             <input className='inputs' type="text" placeholder="Ваш комментарий" id="comment" value={comment} onChange={handleComment} />
-            <button className='inputs' disabled={!username || !comment} type="submit" onChange={handleSubmit}>Create post</button>
+            <button className='inputs' disabled={!username || !comment} type="submit" onChange={handleSubmit}>Оставить комментарий</button>
         </form>
     )
 }
